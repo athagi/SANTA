@@ -6,7 +6,7 @@ window.onload = function(){
 
 	var game = new Game(1136,640);
 	game.fps = 24;
-	game.preload('img/bg1.png','img/bg2.png','img/end.png','img/chara1.png','img/home2.png','img/apad.png','img/0092.png');
+	game.preload('img/bg1.png','img/bg2.png','img/end.png','img/chara1.png','img/home2.png','img/apad.png','img/0092.png','img/icon0.png');
 
 	var sceneX = 1136;
 	var sceneY = 640;
@@ -78,6 +78,34 @@ window.onload = function(){
 				present.scaleX = 0.1;
 				present.scaleY = 0.1;
 				scene.addChild(present);
+
+				present.addEventListener(Event.ENTER_FRAME, function(){
+				present.y += 10;
+
+				if(present.within(home, 50)){
+					console.log ('hit');
+
+/*
+//当たったときにpresureアイコンが出る（未実装
+
+					var presure = new Sprite(16,16);
+					presure.image = game.assets['img/icon0.png'];
+					presure.moveTo(500, scene.height + [home.height/2] + 20);
+					presure.frame = 31;
+					scene.addChild(presure);
+
+					scene.removeChild(present);
+
+					presure.addEventListener(Event.ENTER_FRAME, function(){
+						presure.x -= SCROLL_SPEED -2;
+						presure.y -= 1;
+					});
+*/
+				}
+
+
+			});
+
 			})
 
 			var home = new Sprite(320,320);
@@ -135,5 +163,5 @@ window.onload = function(){
 	}
 	
 
-	game.start();
+	game.debug();
 };

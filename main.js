@@ -6,7 +6,7 @@ window.onload = function(){
 
 	var game = new Game(1136,640);
 	game.fps = 24;
-	game.preload('img/bg1.png','img/bg2.png','img/end.png','img/chara1.png','img/home2.png');
+	game.preload('img/bg1.png','img/bg2.png','img/end.png','img/chara1.png','img/home2.png','img/apad.png','img/0092.png');
 
 	var sceneX = 1136;
 	var sceneY = 640;
@@ -66,6 +66,20 @@ window.onload = function(){
 			santa.scaleX = -1;
 			scene.addChild(santa);
 
+			var button1 = new Sprite(100, 100);
+			button1.image = game.assets['img/apad.png'];
+			button1.moveTo(0,300);
+			scene.addChild(button1);
+
+			button1.addEventListener(Event.TOUCH_START, function(){
+				var present = new Sprite(500,432);
+				present.image = game.assets['img/0092.png'];
+				present.moveTo(-20,-60);
+				present.scaleX = 0.1;
+				present.scaleY = 0.1;
+				scene.addChild(present);
+			})
+
 			var home = new Sprite(320,320);
 			home.image  = game.assets['img/home2.png'];
 			home.moveTo( scene.width  , scene.height - [home.height/1.5 + 20] );
@@ -84,7 +98,7 @@ window.onload = function(){
 
 
 
-			scene.addEventListener(Event.TOUCH_START, function(e){
+			santa.addEventListener(Event.TOUCH_START, function(e){
 				game.pushScene(createGameoverScene());
 
 			});

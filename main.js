@@ -87,7 +87,7 @@ window.onload = function(){
 						scene.removeChild(present);
 
 
-//当たったときにpresureアイコンが出る（未実装
+//当たったときにpresureアイコンが出る
 
 //					if(console.log('hit')){
 						var presure = new Sprite(128,32);
@@ -104,10 +104,25 @@ window.onload = function(){
 
 				}
 
-
 			});
 
-			})
+
+		})
+
+			
+			var button2 = new Sprite(100, 100);
+			button2.image = game.assets['img/apad.png'];
+			button2.moveTo(0,400);
+			scene.addChild(button2);
+
+			button2.addEventListener(Event.TOUCH_START, function(){
+				var bomb = new Sprite(16,16);
+				bomb.image = game.assets['img/icon0.png'];
+				bomb.frame = 25;
+				bomb.moveTo(245,125);
+				scene.addChild(bomb);
+			});
+
 
 			var home = new Sprite(320,320);
 			home.image  = game.assets['img/home2.png'];

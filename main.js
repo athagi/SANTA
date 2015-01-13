@@ -104,6 +104,11 @@ window.onload = function(){
 
 				}
 
+				if(present.y >= 500){
+					console.log ('false');
+					scene.removeChild(present);
+				}  
+
 			});
 
 
@@ -121,6 +126,9 @@ window.onload = function(){
 				bomb.frame = 25;
 				bomb.moveTo(245,125);
 				scene.addChild(bomb);
+
+				//bombを投げる設定
+
 			});
 
 

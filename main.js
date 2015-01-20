@@ -128,6 +128,9 @@ window.onload = function(){
 				scene.addChild(bomb);
 
 				//bombを投げる設定
+				
+
+
 
 			});
 
@@ -189,3 +192,5 @@ window.onload = function(){
 
 	game.debug();
 };
+
+
